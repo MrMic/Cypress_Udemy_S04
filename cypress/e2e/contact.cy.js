@@ -1,8 +1,27 @@
 /// <reference types="Cypress" />
 
 describe('contact form', () => {
+  // ______________________________________________________________________
+  before(() => {
+    // * NOTE: Runs only once, before all tests
+  });
+  // ______________________________________________________________________
+  beforeEach(() => {
+    // * NOTE: Runs before every test
+    cy.visit('/about'); // * NOTE: http://localhost:5173/about
+    // * NOTE: or seeding a database...
+  });
+  // ______________________________________________________________________
+  afterEach(() => {
+    // * NOTE: Runs after every test
+  })
+  // ______________________________________________________________________
+  after(() => {
+    // * NOTE: Runs only once, after all tests
+  })
+  // ______________________________________________________________________
   it('should submit the form', () => {
-    cy.visit('/about');
+    // cy.visit('/about');
     cy.get('[data-cy="contact-input-message"]').type('Hello world!');
     cy.get('[data-cy="contact-input-name"]').type('John Doe');
     cy.get('[data-cy="contact-btn-submit"]').then((el) => {
@@ -22,7 +41,7 @@ describe('contact form', () => {
   });
 
   it('should validate the form input', () => {
-    cy.visit('/about');
+    // cy.visit('/about');
     cy.get('[data-cy="contact-btn-submit"]').click();
     cy.get('[data-cy="contact-btn-submit"]').then((el) => {
       expect(el).to.not.have.attr('disabled');
