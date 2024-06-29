@@ -23,3 +23,8 @@
 //
 // -- This will overwrite an existing command --
 // Cypress.Commands.overwrite('visit', (originalFn, url, options) => { ... })
+
+// * INFO: Custom command to submit a form
+Cypress.Commands.add('submitForm', () => {
+  cy.get('form button[type="submit"]').click();
+});
