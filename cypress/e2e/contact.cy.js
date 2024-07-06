@@ -1,4 +1,4 @@
-/// <reference types="Cypress" />
+/// <reference types="cypress" />
 
 describe('contact form', () => {
   // ______________________________________________________________________
@@ -21,6 +21,9 @@ describe('contact form', () => {
   })
   // ______________________________________________________________________
   it('should submit the form', () => {
+    cy.task("seedDatabase", "filename.csv").then(returnValue => {
+      //...use returnValue
+    });
     // cy.visit('/about');
     cy.getById('contact-input-message').type('Hello world!');
     cy.getById('contact-input-name').type('John Doe');
